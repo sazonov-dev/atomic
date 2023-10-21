@@ -1,0 +1,21 @@
+.footer {
+    font-family: "Poppins", Arial, sans-serif;
+    padding: 94px 0;
+    position: relative;
+    z-index: 5;
+    max-width: 564px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
