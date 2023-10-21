@@ -1,0 +1,52 @@
+.about {
+    font-family: "Poppins", Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 256px 0 91px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+}
+
+.info {
+    position: relative;
+    max-width: 389px;
+    min-height: 258px;
+}
+
+.title {
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.span {
+    color: #00ADB5;
+    font-weight: 700;
+}
+
+.text {
+    color: rgba(238, 238, 238, 0.75);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.light {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.music {
+    position: absolute;
+    left: 0;
+    top: -74px;
+}
+
+.arrow {
+    position: absolute;
+    left: 50%;
+    bottom: -292px;
+    transform: translate(-50%, -50%);
+}
