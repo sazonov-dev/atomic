@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/atomic/static/css/main.7ddaf877.css",
+    "main.js": "/atomic/static/js/main.9f574f28.js",
+    "static/media/person.svg": "/atomic/static/media/person.6bb054c4eaf877e7aeb04e09c0e64d83.svg",
+    "static/media/Poppins-Regular.ttf": "/atomic/static/media/Poppins-Regular.d670998329bb87deac6c.ttf",
+    "static/media/Poppins-Bold.ttf": "/atomic/static/media/Poppins-Bold.8a0f2aaef9dc8b73531a.ttf",
+    "static/media/person-bg.svg": "/atomic/static/media/person-bg.9ef0b5ba5a929196fde6dc3a1620b699.svg",
+    "static/media/lightbulb.svg": "/atomic/static/media/lightbulb.d7b0c29342331b86b6cb9b6c4b038026.svg",
+    "static/media/music.svg": "/atomic/static/media/music.858acd600e4d26736bbc521e98255058.svg",
+    "static/media/phone.svg": "/atomic/static/media/phone.58880eb47e2e0ccd449dfbc041fbeaac.svg",
+    "static/media/arrow.svg": "/atomic/static/media/arrow.f531e41168d2329c5d2586a75b57b3ec.svg",
+    "static/media/send.svg": "/atomic/static/media/send.eccb420e72c135ec6e52fcfae02d82c0.svg",
+    "static/media/button.svg": "/atomic/static/media/button.0a615c911479bdadb341.svg",
+    "static/media/user.svg": "/atomic/static/media/user.870a201aae60cfc333ebe19ef5e74566.svg",
+    "static/media/home.svg": "/atomic/static/media/home.596324fb9c27791be68ec95ce9c9ced0.svg",
+    "index.html": "/atomic/index.html",
+    "main.7ddaf877.css.map": "/atomic/static/css/main.7ddaf877.css.map",
+    "main.9f574f28.js.map": "/atomic/static/js/main.9f574f28.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ddaf877.css",
+    "static/js/main.9f574f28.js"
+  ]
+}
