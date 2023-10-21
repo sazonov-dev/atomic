@@ -4,11 +4,21 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import Video from "./components/Video/Video";
+import Audio from "./components/Audio/Audio";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <General/>,
+    },
+    {
+        path: "/video",
+        element: <Video/>
+    },
+    {
+        path: "/audio",
+        element: <Audio/>
     },
 ]);
 

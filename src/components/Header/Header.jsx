@@ -3,16 +3,33 @@ import styles from './Header.module.css';
 import personImg from '../../assets/header/person.svg'
 import personBgImg from '../../assets/header/person-bg.svg'
 import arrow from '../../assets/header/arrow.svg'
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const navigate = useNavigate();
+    const navHandler = (action) => {
+        switch (action) {
+            case 'video':
+                return navigate('/video')
+            case 'audio':
+                return navigate('/audio')
+            case 'history':
+                return navigate('/history')
+            case 'logo':
+                return navigate('/')
+            default:
+                throw new Error('Не известный action, navHandler')
+        }
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.nav}>
-                <h2 className={styles.logo}>ВСС</h2>
+                <h2 className={styles.logo} onClick={() => navHandler('logo')}>ВСС</h2>
                 <div className={styles.link}>
-                    <button className={styles.button}>Видео</button>
-                    <button className={styles.button}>Аудио</button>
-                    <button className={styles.button}>История</button>
+                    <button className={styles.button} onClick={() => navHandler('video')}>Видео</button>
+                    <button className={styles.button} onClick={() => navHandler('audio')}>Аудио</button>
+                    <button className={styles.button} onClick={() => navHandler('history')}>История</button>
                 </div>
             </div>
             <div className={styles.line}></div>
@@ -26,7 +43,6 @@ const Header = () => {
                     {/*<img className={styles.arrowDown} src={arrowButton} alt="Изображение"/>*/}
                 </div>
                 <div className={styles.person}>
-                    <img className={styles.personBg} src={personBgImg} alt="Задний фон изображения человека"/>
                     <img className={styles.personImg} src={personImg} alt="Изображение человека"/>
                 </div>
             </div>
