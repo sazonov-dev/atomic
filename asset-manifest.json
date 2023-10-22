@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/atomic/static/css/main.7ddaf877.css",
-    "main.js": "/atomic/static/js/main.8bd22ca6.js",
+    "main.css": "/atomic/static/css/main.be1eb45a.css",
+    "main.js": "/atomic/static/js/main.2d9aae0d.js",
     "static/media/person.svg": "/atomic/static/media/person.6bb054c4eaf877e7aeb04e09c0e64d83.svg",
     "static/media/Poppins-Regular.ttf": "/atomic/static/media/Poppins-Regular.d670998329bb87deac6c.ttf",
     "static/media/Poppins-Bold.ttf": "/atomic/static/media/Poppins-Bold.8a0f2aaef9dc8b73531a.ttf",
@@ -15,11 +15,11 @@
     "static/media/user.svg": "/atomic/static/media/user.870a201aae60cfc333ebe19ef5e74566.svg",
     "static/media/home.svg": "/atomic/static/media/home.596324fb9c27791be68ec95ce9c9ced0.svg",
     "index.html": "/atomic/index.html",
-    "main.7ddaf877.css.map": "/atomic/static/css/main.7ddaf877.css.map",
-    "main.8bd22ca6.js.map": "/atomic/static/js/main.8bd22ca6.js.map"
+    "main.be1eb45a.css.map": "/atomic/static/css/main.be1eb45a.css.map",
+    "main.2d9aae0d.js.map": "/atomic/static/js/main.2d9aae0d.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ddaf877.css",
-    "static/js/main.8bd22ca6.js"
+    "static/css/main.be1eb45a.css",
+    "static/js/main.2d9aae0d.js"
   ]
 }
