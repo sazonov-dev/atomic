@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Video from "./components/Video/Video";
 import Audio from "./components/Audio/Audio";
+import History from "./components/History/History";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         path: "/audio",
         element: <Audio/>
     },
+    {
+        path: '/history',
+        element: <History/>
+    }
 ]);
 
 function App() {

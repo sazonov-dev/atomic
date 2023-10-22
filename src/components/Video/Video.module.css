@@ -103,6 +103,15 @@
     background-color: #17232d;
     width: 100%;
     height: 500px;
+    overflow-y: scroll;
+}
+
+.textSpan {
+    display: block;
+}
+
+.textSpan:nth-child(2n) {
+    background-color: #827a7f;
 }
 
 .form {

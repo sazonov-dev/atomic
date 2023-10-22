@@ -17,29 +17,12 @@ const Video = () => {
         setVideo(true);
     };
 
-    const preparedPhrases = (array) => {
-        console.log(array)
-        // const result = array.map((item) => {
-        //     console.log(item[0])
-        //     return item[0]
-        // })
-        //
-        // setPreparedTranscribe(result);
+    const preparedPhrases = (string) => {
+        console.log(string.split('.'))
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        // setTimeout(() => {
-        //     setTranscribeContent([
-        //         ["Диктор 1", "Привет, как дела?"],
-        //         ["Диктор 2", "Привет, все хорошо"],
-        //         ["Диктор 2", "Как твои дела?"],
-        //         ["Диктор 1", "Тоже хорошо"]
-        //     ])
-        //
-        //     setStatus(true);
-        // }, 3000)
 
         if (videoFile) {
             const formData = new FormData();
@@ -47,16 +30,22 @@ const Video = () => {
 
             console.log('123')
 
-            fetch('http://89.23.96.177/upload-video', {
+            fetch(' https://pythonatomicbackend.ru/upload-video', {
                 method: 'POST',
-                mode: 'cors',
                 body: formData,
             })
                 .then((response) => response.json())
-                .then((data) => console.log(data))
+                .then((data) => {
+                    setTranscribeContent(data.result)
+                })
                 .catch((error) => console.log(error.message));
         }
     };
+
+    if (transcribeContent.length > 0) {
+        console.log(transcribeContent)
+        // preparedPhrases(transcribeContent);
+    }
 
     return (
         <>
@@ -73,8 +62,9 @@ const Video = () => {
                     </form>
                 </div>
                 <div className={st.text}>
-                    {/*{status === true ? : null*/}
-                    {/*})}*/}
+                    {transcribeContent.length > 0 ? transcribeContent.map((item) => (
+                        <span key={item.id} className={st.textSpan}>{item.start.toFixed(1)}, {item.end.toFixed(1)} - {item.text}</span>
+                    )) : null}
                 </div>
             </div>
             <div className={styles.line}></div>
