@@ -5,53 +5,33 @@ import styles from "../Header/Header.module.css";
 import st from '../Video/Video.module.css'
 
 const Audio = () => {
-    const [video, setVideo] = useState(null);
-    const [videoFile, setVideoFile] = useState(null);
-    const [status, setStatus] = useState(false);
+    const [audio, setAudio] = useState(null);
+    const [audioFile, setAudioFile] = useState(null);
     const [transcribeContent, setTranscribeContent] = useState([])
-    const [preparedTranscribe, setPreparedTranscribe] = useState([])
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        setVideoFile(file);
-        setVideo(true);
+        setAudioFile(file);
+        setAudio(true);
     };
-
-    const preparedPhrases = (array) => {
-        console.log(array)
-        // const result = array.map((item) => {
-        //     console.log(item[0])
-        //     return item[0]
-        // })
-        //
-        // setPreparedTranscribe(result);
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // setTimeout(() => {
-        //     setTranscribeContent([
-        //         ["Диктор 1", "Привет, как дела?"],
-        //         ["Диктор 2", "Привет, все хорошо"],
-        //         ["Диктор 2", "Как твои дела?"],
-        //         ["Диктор 1", "Тоже хорошо"]
-        //     ])
-        //
-        //     setStatus(true);
-        // }, 3000)
-
-        if (videoFile) {
+        if (audioFile) {
             const formData = new FormData();
-            formData.append('video', videoFile);
+            formData.append('audio', audioFile);
 
-            fetch('http://89.23.96.177/upload-video', {
+            // https://pythonatomicbackend.ru/upload-video деплоенный бекенд
+            // http://127.0.0.1:5000/upload-video локал
+            fetch('http://127.0.0.1:5000/upload-audio', {
                 method: 'POST',
-                mode: 'no-cors',
                 body: formData,
             })
                 .then((response) => response.json())
-                .then((data) => console.log(data))
+                .then((data) => {
+                    setTranscribeContent(data.result)
+                })
                 .catch((error) => console.log(error.message));
         }
     };
@@ -64,15 +44,16 @@ const Audio = () => {
                 <div className={st.info}>
                     <form className={st.form} onSubmit={handleSubmit}>
                         <label className={st.input_file}>
-                            <input type="file" name="file" accept="video/*" onChange={handleFileChange}/>
+                            <input type="file" name="file" accept="audio/*" onChange={handleFileChange}/>
                             <span>Выберите файл</span>
                         </label>
-                        {video === true ? <button className={st.button} type="submit">Транскрибировать</button> : <button className={st.button_inactive} disabled type="submit">Транскрибировать</button>}
+                        {audio === true ? <button className={st.button} type="submit">Транскрибировать</button> : <button className={st.button_inactive} disabled type="submit">Транскрибировать</button>}
                     </form>
                 </div>
                 <div className={st.text}>
-                    {/*{status === true ? : null*/}
-                    {/*})}*/}
+                    {transcribeContent.length > 0 ? transcribeContent.map((item) => (
+                        <span key={item.id} className={st.textSpan}>{item.start.toFixed(1)}, {item.end.toFixed(1)} - {item.text}</span>
+                    )) : null}
                 </div>
             </div>
             <div className={styles.line}></div>

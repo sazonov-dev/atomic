@@ -28,9 +28,9 @@ const Video = () => {
             const formData = new FormData();
             formData.append('video', videoFile);
 
-            console.log('123')
-
-            fetch(' https://pythonatomicbackend.ru/upload-video', {
+            // https://pythonatomicbackend.ru/upload-video деплоенный бекенд
+            // http://127.0.0.1:5000/upload-video локал
+            fetch('http://127.0.0.1:5000/upload-video', {
                 method: 'POST',
                 body: formData,
             })
@@ -41,11 +41,6 @@ const Video = () => {
                 .catch((error) => console.log(error.message));
         }
     };
-
-    if (transcribeContent.length > 0) {
-        console.log(transcribeContent)
-        // preparedPhrases(transcribeContent);
-    }
 
     return (
         <>

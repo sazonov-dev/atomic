@@ -10,19 +10,19 @@ import History from "./components/History/History";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/atomic/",
         element: <General/>,
     },
     {
-        path: "/video",
+        path: "/atomic/video",
         element: <Video/>
     },
     {
-        path: "/audio",
+        path: "/atomic/audio",
         element: <Audio/>
     },
     {
-        path: '/history',
+        path: '/atomic/history',
         element: <History/>
     }
 ]);

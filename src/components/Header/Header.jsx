@@ -10,13 +10,13 @@ const Header = () => {
     const navHandler = (action) => {
         switch (action) {
             case 'video':
-                return navigate('/video')
+                return navigate('/atomic/video')
             case 'audio':
-                return navigate('/audio')
+                return navigate('/atomic/audio')
             case 'history':
-                return navigate('/history')
+                return navigate('/atomic/history')
             case 'logo':
-                return navigate('/')
+                return navigate('/atomic/')
             default:
                 throw new Error('Не известный action, navHandler')
         }
