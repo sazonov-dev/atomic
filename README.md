@@ -11,4 +11,6 @@
 
 Если npm не установлен, его необходимо скачать: https://nodejs.org/en/download
 
+Бекенд - https://github.com/sazonov-dev/atom_back
+
 
