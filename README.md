@@ -9,6 +9,8 @@
 2. Зайти в папку atomic, в терминале выполнить команду npm i
 3. Для запуска проекта, в терминале выполнить команду npm start
 
+Функционал: можно грузить mp4, mp3, wave
+
 Если npm не установлен, его необходимо скачать: https://nodejs.org/en/download
 
 Бекенд - https://github.com/sazonov-dev/atom_back
