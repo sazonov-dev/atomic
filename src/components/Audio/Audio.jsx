@@ -1,13 +1,23 @@
-import React, {useState} from 'react';
+import React, {CSSProperties, useState} from 'react';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import styles from "../Header/Header.module.css";
 import st from '../Video/Video.module.css'
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override: CSSProperties = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    borderColor: "white",
+};
 
 const Audio = () => {
     const [audio, setAudio] = useState(null);
     const [audioFile, setAudioFile] = useState(null);
     const [transcribeContent, setTranscribeContent] = useState([])
+    const [loading, setLoading] = useState(false);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -22,20 +32,35 @@ const Audio = () => {
             const formData = new FormData();
             formData.append('audio', audioFile);
 
-            // https://pythonatomicbackend.ru/upload-video деплоенный бекенд
-            // http://127.0.0.1:5000/upload-video локал
-            fetch('https://pythonatomicbackend.ru/upload-audio', {
-                method: 'POST',
-                mode: 'cors',
-                body: formData,
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setTranscribeContent(data.result)
-                })
-                .catch((error) => console.log(error.message));
+            setLoading(true);
+
+            const requestTimeout = 500000; // 500 секунд
+
+            const fetchData = async () => {
+                try {
+                    const response = await Promise.race([
+                        fetch('https://pythonatomicbackend.ru/upload-audio', {
+                            method: 'POST',
+                            mode: 'cors',
+                            body: formData,
+                        }),
+                        new Promise((_, reject) =>
+                            setTimeout(() => reject(new Error('Request timed out')), requestTimeout)
+                        ),
+                    ]);
+
+                    const data = await response.json();
+                    setTranscribeContent(data.result);
+                    setLoading(false);
+                } catch (error) {
+                    console.error(error.message);
+                }
+            };
+
+            fetchData();
         }
     };
+
 
     return (
         <>
@@ -54,7 +79,14 @@ const Audio = () => {
                 <div className={st.text}>
                     {transcribeContent.length > 0 ? transcribeContent.map((item) => (
                         <span key={item.id} className={st.textSpan}>{item.start.toFixed(1)}, {item.end.toFixed(1)} - {item.text}</span>
-                    )) : null}
+                    )) : <ClipLoader
+                        color={'#ffffff'}
+                        loading={loading}
+                        cssOverride={override}
+                        size={150}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />}
                 </div>
             </div>
             <div className={styles.line}></div>
