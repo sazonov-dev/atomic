@@ -7,19 +7,13 @@ import st from './Video.module.css'
 const Video = () => {
     const [video, setVideo] = useState(null);
     const [videoFile, setVideoFile] = useState(null);
-    const [status, setStatus] = useState(false);
     const [transcribeContent, setTranscribeContent] = useState([])
-    const [preparedTranscribe, setPreparedTranscribe] = useState([])
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         setVideoFile(file);
         setVideo(true);
     };
-
-    const preparedPhrases = (string) => {
-        console.log(string.split('.'))
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -30,8 +24,9 @@ const Video = () => {
 
             // https://pythonatomicbackend.ru/upload-video деплоенный бекенд
             // http://127.0.0.1:5000/upload-video локал
-            fetch('http://127.0.0.1:5000/upload-video', {
+            fetch('https://pythonatomicbackend.ru/upload-video', {
                 method: 'POST',
+                mode: 'cors',
                 body: formData,
             })
                 .then((response) => response.json())
@@ -69,3 +64,5 @@ const Video = () => {
 };
 
 export default Video;
+
+

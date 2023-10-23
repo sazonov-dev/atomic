@@ -1,7 +1,9 @@
 .header {
+    box-sizing: border-box;
     font-family: 'Poppins', Arial, sans-serif;
     position: relative;
     z-index: 5;
+    padding: 0 20px;
 }
 
 .logo {
@@ -115,4 +117,36 @@
     left: -10px;
     top: 180px;
     transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1280px) {
+    .content {
+        max-width: 320px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 25px 0 20px 0;
+    }
+
+    .link {
+        gap: 20px;
+    }
+
+    .text {
+        font-size: 30px;
+        font-weight: 700;
+        max-width: 660px;
+        text-align: center;
+    }
+
+    .arrow {
+        top: 100px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .personImg {
+        width: 300px;
+    }
 }

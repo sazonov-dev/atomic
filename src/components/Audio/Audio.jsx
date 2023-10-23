@@ -24,8 +24,9 @@ const Audio = () => {
 
             // https://pythonatomicbackend.ru/upload-video деплоенный бекенд
             // http://127.0.0.1:5000/upload-video локал
-            fetch('http://127.0.0.1:5000/upload-audio', {
+            fetch('https://pythonatomicbackend.ru/upload-audio', {
                 method: 'POST',
+                mode: 'cors',
                 body: formData,
             })
                 .then((response) => response.json())

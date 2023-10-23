@@ -50,3 +50,21 @@
     bottom: -292px;
     transform: translate(-50%, -50%);
 }
+
+@media screen and (max-width: 1280px) {
+    .about {
+        max-width: 320px;
+        padding: 25px 0 20px 0;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .person {
+        max-width: 300px;
+        object-fit: cover;
+    }
+
+}

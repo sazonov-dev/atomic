@@ -121,3 +121,10 @@
     align-items: center;
     margin-bottom: 50px;
 }
+
+
+@media screen and (max-width: 1280px) {
+    .content {
+        padding: 50px 10px;
+    }
+}
