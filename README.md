@@ -4,7 +4,7 @@
 
 # Проект занял 2-ое место
 
-Задеплоенный фронт (не связан с бекендом) - https://sazonov-dev.github.io/atomic/
+Задеплоенный фронт - https://sazonov-dev.github.io/atomic/
 
 Стек используемых технологий: React
 
